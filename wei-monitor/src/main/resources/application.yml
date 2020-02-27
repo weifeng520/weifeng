@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: wei-monitor
+  security:
+    user:
+      name: admin
+      password: admin
+
+server:
+  port: 8081
+# 注册中心配置
+eureka:
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+  client:
+    service-url:
+      defaultZone: http://admin:xuanniao@localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

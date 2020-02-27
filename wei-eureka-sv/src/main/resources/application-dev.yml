@@ -1,0 +1,24 @@
+server:
+  port: ${SERVER_PORT:8761}
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  server:
+    renewalPercentThreshold: 0.45
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  security:
+    user:
+      name: admin
+      password: xuanniao
+
+# log config
+logging:
+  config: classpath:logback.xml
+  level:
+    com.wei.admin: info

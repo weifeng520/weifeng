@@ -1,0 +1,13 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: wei-admin
+
+# log config
+logging:
+  config: classpath:logback.xml
+  level:
+    com.wei.admin: info
+  file: D:/data/applogs/wei-admin.log

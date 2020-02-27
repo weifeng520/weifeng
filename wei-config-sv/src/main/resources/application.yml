@@ -1,0 +1,30 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: wei-config-sv
+  config:
+    name: wei-config-sv
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/weifeng520/weifeng-config.git
+          username: 15136280270
+          password: 090401zjw
+          default-label: master
+          search-paths: wei-*
+          basedir: D:/data/configtmp
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:xuanniao@localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

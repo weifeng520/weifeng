@@ -1,0 +1,33 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: wei-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: wei-admin
+        uri: lb://wei-admin
+        predicates:
+        - Path=/admin/**
+        filters:
+        #          - SwaggerHeaderFilter
+        - StripPrefix=1
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:xuanniao@localhost:8761/eureka/
+#      defaultZone: http://192.168.206.128:8761/eureka/,http://192.168.206.129:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

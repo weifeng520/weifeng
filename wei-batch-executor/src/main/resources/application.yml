@@ -1,0 +1,11 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: wei-batch-executor
+
+# log config
+logging:
+  config: classpath:logback.xml
+
